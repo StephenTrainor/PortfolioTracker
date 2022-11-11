@@ -96,6 +96,10 @@ void create() {
     std::string type = get_string_lower("Enter type of asset: ");
 
     while (!in(typesAllowed, type)) {
+        if (type.empty() || type.length() < 1) {
+            return;
+        }
+
         fmt::print("\'{}\' is not an allowed asset type.\n", type);
         type = get_string_lower("Enter type of asset: ");
     }
@@ -118,6 +122,10 @@ void create() {
         type = get_string_lower("\nEnter type of asset: ");
 
         while (!in(typesAllowed, type)) {
+            if (type.empty() || type.length() < 1) {
+                return;
+            }
+
             fmt::print("\'{}\' is not an allowed asset type.\n", type);
             type = get_string_lower("Enter type of asset: ");
         }
