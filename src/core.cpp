@@ -9,7 +9,7 @@ void quote();
 void create();
 void open();
 
-void start() { // most methods below are pretty self-explanatory and handle the messy branching
+void start() { // handles the messy branching
     std::vector<std::string> quit = {"q", "quit", "exit", "stop"};
 
     std::string choice = get_string_lower("1: Quote\n"

@@ -4,7 +4,7 @@
 #include "../include/Items.h"
 #include "../include/get_quote.h"
 
-static std::vector<std::string> get_lines(std::ifstream& f) { // self-explanatory
+static std::vector<std::string> get_lines(std::ifstream& f) {
     std::vector<std::string> lines;
     std::string line;
 
@@ -47,7 +47,7 @@ Items::Items() {
     longestName = 0; // used for nice alignment when displaying portfolio
     longestSymbol = 0;
 
-    for (Item* item : inventoryItems) { // 5 star italian spaghetti code
+    for (Item* item : inventoryItems) {
         if (item->getName().length() > longestName) {
             longestName = item->getName().length();
         }
@@ -60,7 +60,7 @@ Items::Items() {
 }
 
 Items::~Items() {
-    for (Item* temp : inventoryItems) { // couldn't get std::unique_ptr to work in a vector, so here I am
+    for (Item* temp : inventoryItems) {
         delete temp; // avoid memory leaks
     }
 }
@@ -85,7 +85,7 @@ double Items::totalValuePrevious() const {
     return total;
 }
 
-size_t Items::longestProfitLoss() const { // forgive me time complexity
+size_t Items::longestProfitLoss() const {
     size_t longest = 0;
 
     for (Item* i : inventoryItems) {
@@ -185,6 +185,6 @@ void Items::updateFile() const {
     file.close();
 }
 
-double Items::sd(const std::string& str) { // string to double, kinda pointless but idk if it causes a lot of overhead
+double Items::sd(const std::string& str) {
     return std::stod(str);
 }

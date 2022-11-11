@@ -23,7 +23,7 @@ double Item::display(int longestName, int longestSymbol, size_t longestProfitLos
     auto fgText = fg(fmt::color::antique_white);
 
     fmt::print(fgText, "{:<{}} - {:<{}} - $ ", name, longestName, tempSymbol, longestSymbol); // similar functionality of python's f-strings
-    fmt::print(fg(color), "{:>+{}.2f} ({:+.2f}%)", pL, longestProfitLoss, pLPercent); // < and > are basically setw() and left() or right() in <iomanpi>
+    fmt::print(fg(color), "{:>+{}.2f} ({:+.2f}%)", pL, longestProfitLoss, pLPercent); // < and > are basically setw() and left() or right() in <iomanip>
     fmt::print(fgText, " - [Latest: ${} with {} units]\n", latest, volume);
 
     return pL;
@@ -62,7 +62,7 @@ void Item::removeUnits(double units) {
     }
 }
 
-void Item::addUnits(double units) { // yes, this is a setter method
+void Item::addUnits(double units) {
     double totalValue = totalValuePrevious();
     double totalValueLatest = latestPrice() * units;
 
@@ -74,7 +74,7 @@ std::string Item::str() const {
     return fmt::format("{},{},{},{:.2f},{}\n", name, type, symbol, avgPrice, volume);
 }
 
-std::string Item::getName() const { // yell at me all you want for the getter methods
+std::string Item::getName() const {
     return name;
 }
 

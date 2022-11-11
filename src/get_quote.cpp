@@ -32,7 +32,7 @@ std::unique_ptr<Result> request(const std::string& type) {
 
     if (curl == nullptr) {
         std::cout << "NULL ptr" << std::endl;
-        return request(type); // im too lazy to deal with this
+        return request(type);
     }
 
     code = curl_easy_setopt(curl, CURLOPT_URL, url.c_str()); // c_str() is used as curl.h is written in c
@@ -89,7 +89,7 @@ std::unique_ptr<Result> request(std::string symbol, const std::string& type) { /
 
     if (curl == nullptr) {
         std::cout << "NULL ptr" << std::endl;
-        return request(symbol, type); // im too lazy to deal with this
+        return request(symbol, type);
     }
 
     code = curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
@@ -159,7 +159,7 @@ std::string trim(std::string information, const std::string& target) {
     return information;
 }
 
-std::string get_string(const std::string& prompt) { // mostly for convenience
+std::string get_string(const std::string& prompt) {
     std::string str;
 
     std::cout << prompt;
@@ -194,7 +194,7 @@ double get_double(const std::string& prompt) {
     std::cin >> out;
 
     std::cin.clear();
-    std::cin.ignore(std::numeric_limits<int>::max(), '\n'); // just in case
+    std::cin.ignore(std::numeric_limits<int>::max(), '\n');
 
     while (std::cin.fail()) {
         std::cin >> out;
