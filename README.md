@@ -23,3 +23,7 @@ After opening a file, selecting the second option displays your entire portfolio
 When adding to or creating portfolios, keep track of your stocks and cryptocurrencies with the latest price data.
 
 ![Example of adding new assets to a portfolio](public/addItemsExample.png)
+
+## Note
+
+IEXCloud no longer offers a free plan for their APIs
